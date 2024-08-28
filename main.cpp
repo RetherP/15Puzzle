@@ -18,7 +18,7 @@ int main(){
 		std::cout << "Generating random direction... " << Direction::getRandomDirection() << '\n';
 		std::cout << "Generating random direction... " << Direction::getRandomDirection() << "\n\n";
 
-		while (true)
+		while (!board.isFinished())
     		{
         		char ch{ UserInput::getCommandFromUser() };
 
@@ -33,10 +33,9 @@ int main(){
 		        Direction dir{ ch };
 				
 		        std::cout << "You entered direction: " << dir << '\n';
-			board.moveTile(dir);
-			std::cout << board;
-			if(board.isFinished()) break;
-    		}
+				board.moveTile(dir);
+				std::cout << board;
+			}
 		std::cout << "You won!!!";
 	}
 	catch(std::runtime_error& err){
