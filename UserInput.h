@@ -1,10 +1,6 @@
-#ifndef USERINPUT_H
-#define USERINPUT_H
+#pragma once
 #include "Direction.h"
 namespace UserInput{
 	char getCommandFromUser();
-	bool isValid(char c);
-	Direction charToDirection(char c);
+	bool isValid(const char c);
 }
-
-#endif

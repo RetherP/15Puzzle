@@ -7,15 +7,10 @@
 #include "Random.h"
 #include <stdexcept>
 
-void RandomizeBoard(Board& b){
-	for(int i {0}; i<= 100; ++i){
-		b.moveTile(Direction {static_cast<Direction::Type>(Random::get(0,3))});
-	}
-}
 int main(){
 	try{
 		Board board{};
-		RandomizeBoard(board);
+		board.RandomizeBoard();
 		std::cout << board;
 
 		std::cout << "Generating random direction... " << Direction::getRandomDirection() << '\n';
@@ -35,8 +30,8 @@ int main(){
 	        	}	
 
 	        	// Handle direction commands
-		        Direction dir{ UserInput::charToDirection(ch) };
-
+		        Direction dir{ ch };
+				
 		        std::cout << "You entered direction: " << dir << '\n';
 			board.moveTile(dir);
 			std::cout << board;

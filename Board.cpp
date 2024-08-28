@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Board.h"
 #include "Point.h"
+#include <array>
 #include <stdexcept>
 std::ostream& operator<<(std::ostream& out, const Board& b){
 	for(int i{0}; i< g_console_line; ++i){
@@ -14,17 +15,8 @@ std::ostream& operator<<(std::ostream& out, const Board& b){
 	}
 	return out;
 }
-Tile& Board::getTile(std::size_t r, std::size_t c){
+Tile& Board::getTile(const std::size_t& r, const std::size_t& c){
 	return this->array[r][c];
-}
-void Board::moveTile(Direction d){
-	std::size_t row;
-	std::size_t col;
-	Tile& empty {this->findTile(row,col)};
-	Point e {static_cast<int>(row), static_cast<int>(col)};
-	e.getAdjacentPoint(-d);
-	if(e.m_x < 0 || e.m_x > 3 || e.m_y < 0 || e.m_y > 3 ||(Board::getTile(static_cast<std::size_t>(e.m_x),static_cast<std::size_t>(e.m_y)).isEmpty())) return;
-	std::swap(empty,Board::getTile(static_cast<std::size_t>(e.m_x),static_cast<std::size_t>(e.m_y)));
 }
 Tile& Board::findTile(std::size_t& row, std::size_t& col){
 	Tile empty {0};

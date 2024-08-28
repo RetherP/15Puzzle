@@ -1,5 +1,4 @@
-#ifndef TILE_H
-#define TILE_H
+#pragma once
 #include <iostream>
 class Tile{
 	private:
@@ -12,4 +11,3 @@ class Tile{
 		constexpr int getNum() const{return m_num;}
 		friend bool operator==(const Tile& t1, const Tile& t2);
 };
-#endif
